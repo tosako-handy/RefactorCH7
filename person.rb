@@ -1,7 +1,6 @@
 class Person
 
   attr_reader :name
-  attr_accessor :office_area_code
   attr_accessor :office_number
 
   def initialize
@@ -10,6 +9,14 @@ class Person
 
   def telephone_number
     "(#{office_area_code}) #{office_number}"
+  end
+
+  def office_area_code
+    @office_telephone.area_code
+  end
+
+  def office_area_code=(arg)
+    @office_telephone.area_code = arg
   end
 end
 
