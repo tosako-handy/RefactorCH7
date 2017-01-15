@@ -5,8 +5,6 @@ class Account
   REGULAR_MULTIPLIER = 1.75
   BANK_FEE = 4.5
 
-  attr_accessor :interest_rate
-
   def overdraft_change
     if @account_type.premium?
       result = PREMIUM_INITIAL_CHARGE
@@ -25,6 +23,10 @@ class Account
 
   def interest_for_amount_days(amount, days)
     interet_rate * amount * days / 365
+  end
+
+  def interest_rate
+    @account_type.interest_rate
   end
 end
 
