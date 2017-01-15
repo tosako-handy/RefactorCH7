@@ -1,11 +1,13 @@
 class Account
+  extend Forwardable
+
   PREMIUM_DEFAULT_CHARGE = 10
   PREMIUM_GRACE_PERIOD = 7
   PREMIUM_MULTIPLIER = 0.85
   REGULAR_MULTIPLIER = 1.75
   BANK_FEE = 4.5
 
-  attr_accessor :interest_rate
+  def_delegator :@account_type, :interest_rate, :interest_rate=
 
   def overdraft_change
     if @account_type.premium?
