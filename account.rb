@@ -22,7 +22,7 @@ class Account
   end
 
   def interest_for_amount_days(amount, days)
-    @interet_rate * amount * days / 365
+    @account_type.interest_rate * amount * days / 365
   end
 end
 
