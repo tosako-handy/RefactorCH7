@@ -1,3 +1,5 @@
 class Person
-  attr_accessor :department
+  extend Forwardable
+
+  def delegator :@department, :manager
 end
